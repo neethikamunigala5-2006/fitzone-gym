@@ -28,7 +28,7 @@ label {
 <h2 style="font-size: 30px;">
     Member Registration
 </h2>
-<form>
+<form onsubmit="return validateForm()">
     <label>Full Name:</label><br>
     <input type="text" placeholder="Enter your full name"><br><br>
     <label>Email:</label><br>
@@ -52,5 +52,42 @@ label {
     <br><br>
 <a href="index.html">← Back to Home</a>
 </center>
+<script>
+function validateForm() {
+let name = document.querySelector('input[type="text"]').value;
+let email = document.querySelector('input[type="email"]').value;
+let phone = document.querySelector('input[type="tel"]').value;
+let age = document.querySelector('input[type="number"]').value;
+let passwords = document.querySelectorAll('input[type="password"]');
+let password = passwords[0].value;
+let confirmPassword = passwords[1].value;
+if (name == "") {
+    alert("Please enter your name");
+    return false;
+}
+if (email == "") {
+    alert("Please enter your email");
+    return false;
+}
+if (phone.length != 10) {
+    alert("Enter a valid 10-digit phone number");
+    return false;
+}
+if (age == "" || age < 18) {
+    alert("Age must be 18 or above");
+    return false;
+}
+if (password.length < 6) {
+    alert("Password must contain at least 6 characters");
+    return false;
+}
+if (password != confirmPassword) {
+    alert("Passwords do not match");
+    return false;
+}
+alert("Registration Successful!");
+return true;
+}
+</script>
 </body>
 </html>
