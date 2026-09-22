@@ -3,21 +3,21 @@
 <head> 
 <title>FitZone Gym</title> 
 <link rel="stylesheet" href="style.css"> 
+
 <style> 
-    #membership { 
-        background-color: white; 
-        padding: 15px; 
-        border-radius: 10px; 
-    } 
     #contact { 
         background-color: white; 
         padding: 15px; 
         border-radius: 10px; 
     } 
 </style> 
+
 </head> 
+
 <body> 
+
 <center>       
+
 <img src="gymlogo.jpeg" alt="FitZone Gym Logo" width="300"> 
 
 <h1 style="color: darkblue; font-size: 40px;"> 
@@ -27,7 +27,6 @@
 <hr> 
 
 <a href="index.html">Home</a> | 
-<a href="#membership">Membership</a> | 
 <a href="#contact">Contact</a> | 
 <a href="login.html">Login</a> | 
 <a href="register.html">Register</a> | 
@@ -38,36 +37,23 @@
 <h2>Transform Your Body, Transform Your Life</h2> 
 
 <p>Welcome to FitZone Gym. Join us to improve your fitness, 
-        build strength, and lead a healthy lifestyle.</p> 
+build strength, and lead a healthy lifestyle.</p> 
 
-<button onclick="loadGymInfo()" style="background-color: green; color: white; padding: 10px 20px; border: none; border-radius: 5px;"> 
+<button style="background-color: green; color: white; padding: 10px 20px; border: none; border-radius: 5px;"> 
     Join Now 
 </button> 
 
-<hr> 
-<hr> 
+<br><br>
 
-<h2 id="membership">Membership Plans</h2> 
+<!-- WEEK 8 -->
 
-<h3>Basic Plan</h3> 
-<ul> 
-<li>Gym Access</li> 
-<li>Locker Facility</li> 
-</ul> 
+<button onclick="loadInformation()"> 
+    Load Information
+</button>
 
-<h3>Premium Plan</h3> 
-<ul> 
-<li>Gym Access</li> 
-<li>Personal Trainer</li> 
-<li>Cardio Training</li> 
-</ul> 
+<br><br>
 
-<h3>VIP Plan</h3> 
-<ul> 
-<li>All Premium Features</li> 
-<li>Diet Plan</li> 
-<li>24/7 Gym Access</li> 
-</ul> 
+<div id="information"></div>
 
 <hr> 
 
@@ -83,22 +69,34 @@
 
 </center> 
 
+
 <script>
 
-function loadGymInfo() {
+// Week 8 - Fetch API to load text data
+
+function loadInformation() {
 
     fetch("notes.txt")
+
     .then(response => response.text())
+
     .then(data => {
-        alert(data);
+
+        document.getElementById("information").innerHTML = data;
+
     })
+
     .catch(error => {
-        alert("Error loading gym information");
+
+        document.getElementById("information").innerHTML =
+            "Error loading information";
+
     });
 
 }
 
 </script>
+
 
 </body> 
 </html>
