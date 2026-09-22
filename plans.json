@@ -1,5 +1,22 @@
 [
-  {"name":"Basic Plan","price":"₹999"},
-  {"name":"Premium Plan","price":"₹4499"},
-  {"name":"Gold Plan","price":"₹7999"}
+    {
+        "name": "Basic Plan",
+        "duration": "1 Month",
+        "price": 999
+    },
+    {
+        "name": "Standard Plan",
+        "duration": "3 Months",
+        "price": 2499
+    },
+    {
+        "name": "Premium Plan",
+        "duration": "6 Months",
+        "price": 4499
+    },
+    {
+        "name": "Gold Plan",
+        "duration": "1 Year",
+        "price": 7999
+    }
 ]
