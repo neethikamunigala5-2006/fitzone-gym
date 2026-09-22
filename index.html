@@ -1,78 +1,55 @@
-<!DOCTYPE html> 
-<html> 
-<head> 
-<title>FitZone Gym</title> 
-<link rel="stylesheet" href="style.css"> 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FitZone Gym</title>
 
-<style> 
-    #contact { 
-        background-color: white; 
-        padding: 15px; 
-        border-radius: 10px; 
-    } 
-</style> 
+    <link rel="stylesheet" href="style.css">
 
-</head> 
+    <style>
+        #information {
+            background-color: white;
+            width: 70%;
+            margin: 25px auto;
+            padding: 25px;
+            border-radius: 10px;
+            font-size: 20px;
+        }
 
-<body> 
+        button {
+            background-color: darkblue;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
 
-<center>       
+<body>
 
-<img src="gymlogo.jpeg" alt="FitZone Gym Logo" width="300"> 
+<center>
 
-<h1 style="color: darkblue; font-size: 40px;"> 
-    FitZone Gym 
-</h1> 
+<img src="gymlogo.jpeg" alt="FitZone Gym Logo" width="220">
 
-<hr> 
+<h1 style="color: black; font-size: 40px;">
+    FitZone Gym
+</h1>
 
-<a href="index.html">Home</a> | 
-<a href="#contact">Contact</a> | 
-<a href="login.html">Login</a> | 
-<a href="register.html">Register</a> | 
-<a href="catalogue.html">Catalogue</a> 
+<h2>
+    Gym Information
+</h2>
 
-<hr> 
-
-<h2>Transform Your Body, Transform Your Life</h2> 
-
-<p>Welcome to FitZone Gym. Join us to improve your fitness, 
-build strength, and lead a healthy lifestyle.</p> 
-
-<button style="background-color: green; color: white; padding: 10px 20px; border: none; border-radius: 5px;"> 
-    Join Now 
-</button> 
-
-<br><br>
-
-<!-- WEEK 8 -->
-
-<button onclick="loadInformation()"> 
+<button onclick="loadInformation()">
     Load Information
 </button>
 
-<br><br>
-
 <div id="information"></div>
 
-<hr> 
-
-<h2 id="contact">Contact Us</h2> 
-
-<p><b>Phone:</b> +91 9876543210</p> 
-<p><b>Email:</b> fitzonegym@gmail.com</p> 
-<p><b>Address:</b> Hyderabad</p> 
-
-<hr> 
-
-<p><b>&copy; 2026 FitZone Gym. All Rights Reserved.</b></p> 
-
-</center> 
-
+</center>
 
 <script>
-
-// Week 8 - Fetch API to load text data
 
 function loadInformation() {
 
@@ -81,22 +58,17 @@ function loadInformation() {
     .then(response => response.text())
 
     .then(data => {
-
         document.getElementById("information").innerHTML = data;
-
     })
 
     .catch(error => {
-
         document.getElementById("information").innerHTML =
             "Error loading information";
-
     });
 
 }
 
 </script>
 
-
-</body> 
+</body>
 </html>
