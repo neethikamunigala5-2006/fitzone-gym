@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FitZone Gym - Load Information</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        #information {
+            background-color: white;
+            width: 70%;
+            margin: 25px auto;
+            padding: 25px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<center>
+
+<img src="gymlogo.jpeg" alt="FitZone Gym Logo" width="300">
+
+<h1 style="color: darkblue; font-size: 40px;">
+    FitZone Gym
+</h1>
+
+<hr>
+
+<h2>Gym Information</h2>
+
+<button onclick="loadInformation()">
+    Load Information
+</button>
+
+<div id="information"></div>
+
+<br>
+
+<a href="index.html">← Back to Home</a>
+
+</center>
+<script>
+function loadInformation() {
+
+    fetch("notes.txt")
+
+    .then(response => response.text())
+
+    .then(data => {
+
+        document.getElementById("information").innerHTML = data;
+
+    })
+
+    .catch(error => {
+
+        document.getElementById("information").innerHTML =
+            "Error loading information";
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>
