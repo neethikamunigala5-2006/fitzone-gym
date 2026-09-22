@@ -1,113 +1,108 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>FitZone Gym - Catalogue</title>
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <title>FitZone Gym - Catalogue</title> 
+ 
+    <!-- External CSS --> 
+    <link rel="stylesheet" href="style.css"> 
+ 
+    <!-- Internal CSS --> 
+    <style> 
+        .catalogue { 
+            display: flex; 
+            justify-content: center; 
+            gap: 20px; 
+            flex-wrap: wrap; 
+        } 
+ 
+        .plan { 
+            background-color: white; 
+            width: 220px; 
+            padding: 20px; 
+            border-radius: 10px; 
+        } 
+ 
+        .plan h3 { 
+            color: darkblue; 
+        } 
+ 
+        .plan button { 
+            background-color: darkblue; 
+            color: white; 
+            padding: 10px; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+        } 
+    </style> 
+</head> 
+ 
+<body> 
+ 
+<center> 
+ 
+<h1>FitZone Gym</h1> 
+ 
+<hr> 
+ 
+<a href="index.html">Home</a> | 
+<a href="login.html">Login</a> | 
+<a href="register.html">Register</a> | 
+<a href="catalogue.html">Catalogue</a> 
+ 
+<hr> 
+ 
+<h2 style="font-size: 30px; color: darkblue;"> 
+    Gym Membership Catalogue 
+</h2> 
+ 
+<div class="catalogue" id="catalogue"> 
+ 
+</div> 
+ 
+<br><br> 
+ 
+<a href="index.html">← Back to Home</a> 
+ 
+</center> 
+ 
+<!-- JavaScript --> 
+<script> 
 
-    <!-- External CSS -->
-    <link rel="stylesheet" href="style.css">
+// WEEK 9 - Fetch API to parse JSON data
 
-    <!-- Internal CSS -->
-    <style>
-        .catalogue {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
+fetch("plans.json")
+.then(response => response.json())
+.then(data => {
 
-        .plan {
-            background-color: white;
-            width: 220px;
-            padding: 20px;
-            border-radius: 10px;
-        }
+    let catalogue = document.getElementById("catalogue");
 
-        .plan h3 {
-            color: darkblue;
-        }
+    data.forEach(plan => {
 
-        .plan button {
-            background-color: darkblue;
-            color: white;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-    </style>
-</head>
+        catalogue.innerHTML += `
+            <div class="plan"> 
+                <h3>${plan.name}</h3> 
+                <p>Duration: ${plan.duration}</p> 
+                <p>Price: ₹${plan.price}</p> 
+                <button onclick="selectPlan('${plan.name}')"> 
+                    Select Plan 
+                </button> 
+            </div>
+        `;
 
-<body>
+    });
 
-<center>
+})
+.catch(error => {
+    alert("Error loading membership plans");
+});
 
-<h1>FitZone Gym</h1>
 
-<hr>
+function selectPlan(plan) { 
+    alert(plan + " selected!"); 
+} 
 
-<a href="index.html">Home</a> |
-<a href="login.html">Login</a> |
-<a href="register.html">Register</a> |
-<a href="catalogue.html">Catalogue</a>
-
-<hr>
-
-<h2 style="font-size: 30px; color: darkblue;">
-    Gym Membership Catalogue
-</h2>
-
-<div class="catalogue">
-
-    <div class="plan">
-        <h3>Basic Plan</h3>
-        <p>Duration: 1 Month</p>
-        <p>Price: ₹999</p>
-        <button onclick="selectPlan('Basic Plan')">
-            Select Plan
-        </button>
-    </div>
-
-    <div class="plan">
-        <h3>Standard Plan</h3>
-        <p>Duration: 3 Months</p>
-        <p>Price: ₹2499</p>
-        <button onclick="selectPlan('Standard Plan')">
-            Select Plan
-        </button>
-    </div>
-
-    <div class="plan">
-        <h3>Premium Plan</h3>
-        <p>Duration: 6 Months</p>
-        <p>Price: ₹4499</p>
-        <button onclick="selectPlan('Premium Plan')">
-            Select Plan
-        </button>
-    </div>
-
-    <div class="plan">
-        <h3>Gold Plan</h3>
-        <p>Duration: 1 Year</p>
-        <p>Price: ₹7999</p>
-        <button onclick="selectPlan('Gold Plan')">
-            Select Plan
-        </button>
-    </div>
-
-</div>
-
-<br><br>
-
-<a href="index.html">← Back to Home</a>
-
-</center>
-
-<!-- JavaScript -->
-<script>
-function selectPlan(plan) {
-    alert(plan + " selected!");
-}
-</script>
-
-</body>
+</script> 
+ 
+</body> 
 </html>
