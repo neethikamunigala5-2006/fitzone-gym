@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE gym SYSTEM "gym.dtd">
+
+<gym>
+
+    <membership>
+        <plan>Basic Plan</plan>
+        <duration>1 Month</duration>
+        <price>999</price>
+        <trainer>No</trainer>
+        <access>Gym Access</access>
+    </membership>
+
+    <membership>
+        <plan>Premium Plan</plan>
+        <duration>6 Months</duration>
+        <price>4499</price>
+        <trainer>Yes</trainer>
+        <access>Gym Access + Cardio</access>
+    </membership>
+
+    <membership>
+        <plan>VIP Plan</plan>
+        <duration>1 Year</duration>
+        <price>7999</price>
+        <trainer>Yes</trainer>
+        <access>24/7 Gym Access</access>
+    </membership>
+
+</gym>
