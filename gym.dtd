@@ -1,0 +1,9 @@
+<!ELEMENT gym (membership+)>
+
+<!ELEMENT membership (plan, duration, price, trainer, access)>
+
+<!ELEMENT plan (#PCDATA)>
+<!ELEMENT duration (#PCDATA)>
+<!ELEMENT price (#PCDATA)>
+<!ELEMENT trainer (#PCDATA)>
+<!ELEMENT access (#PCDATA)>
